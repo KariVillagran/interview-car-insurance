@@ -13,11 +13,14 @@ class CarInsurance {
 
   updateNormalCovarage(product) {
     let decreases = 1;
-    if (product.sellIn < 0) {
+    if (product.sellIn <= 0) {
       decreases = 2;
     }
     if(product.price > 0) {
       product.price = product.price - decreases;
+      if(product.price <= 0) { 
+        product.price = 0;
+      }
     } else {
       product.price = 0;
     }
@@ -27,7 +30,7 @@ class CarInsurance {
 
   updateFullCovarage(product) {
     let increase = 1;
-    if (product.sellIn < 0) {
+    if (product.sellIn <= 0) {
       increase = 2;
     }
     if (product.price < 0) {
@@ -35,6 +38,9 @@ class CarInsurance {
     }
     if(product.price < 50) {
       product.price = product.price + increase;
+      if (product.price > 50) {
+        product.price = 50;
+      }
     } else {
       product.price = 50;
     }
@@ -46,8 +52,8 @@ class CarInsurance {
     if (product.price < 0) {
       product.price = 0;
     }
-    if(product.price > 50) {
-      product.price = 50;
+    if(product.price != 80) {
+      product.price = 80;
     }
     return product;
   }
@@ -65,6 +71,9 @@ class CarInsurance {
     }
     if(product.price < 50) {
       product.price = product.price + increase;
+      if (product.price > 50) {
+        product.price = 50;
+      }
     } else {
       product.price = 50;
     }

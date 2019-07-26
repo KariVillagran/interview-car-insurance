@@ -59,6 +59,16 @@ describe('Car Normal Coverage', () => {
     expect(products[0].sellIn).to.equal(-2);
   });
 
+  it('valide day 0', () => {
+    const nameCoverage = 'Low Coverage';
+    const sellInCoverage = 0;
+    const priceCoverage = 2;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(-1);
+  });
+
 });
 
 describe('Car Full Coverage', () => { 
@@ -101,6 +111,26 @@ describe('Car Full Coverage', () => {
     const products = coTest.updatePrice();
     expect(products[0].price).to.equal(50);
     expect(products[0].sellIn).to.equal(0);
+  });
+
+  it('sellIn negative', () => {
+    const nameCoverage = 'Full Coverage';
+    const sellInCoverage = -1;
+    const priceCoverage = 10;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(12);
+    expect(products[0].sellIn).to.equal(-2);
+  });
+
+  it('valide day 0', () => {
+    const nameCoverage = 'Full Coverage';
+    const sellInCoverage = 0;
+    const priceCoverage = 2;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(4);
+    expect(products[0].sellIn).to.equal(-1);
   });
 
 });
