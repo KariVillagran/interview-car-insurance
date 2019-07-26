@@ -21,3 +21,5 @@ Icon
 /.vscode
 
 package-lock.json
+test.report.txt
+.nyc_output
