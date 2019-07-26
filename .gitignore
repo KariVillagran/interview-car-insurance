@@ -23,3 +23,4 @@ Icon
 package-lock.json
 test.report.txt
 .nyc_output
+product_after_30_days_result.txt

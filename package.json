@@ -4,7 +4,7 @@
   "description": "ComparaOnline Software Engineer Test",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha spec/*.js && nyc mocha spec/*.js > test.report.txt",
+    "test": "nyc --reporter=text-summary mocha spec/*.js && nyc mocha spec/*.js > test.report.txt",
     "after-30-days": "node printReport.js > product_after_30_days_result.txt"
   },
   "repository": {
