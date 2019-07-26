@@ -11,7 +11,8 @@ class CarInsurance {
     this.products = products;
   }
   updatePrice() {
-    return 'unsupported coverage';
+    this.products = this.products.map(product => product);
+    return this.products;
   }
 }
 
