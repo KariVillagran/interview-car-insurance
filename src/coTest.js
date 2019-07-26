@@ -30,12 +30,25 @@ class CarInsurance {
     if (product.sellIn < 0) {
       increase = 2;
     }
-    if(product.price > 0) {
+    if (product.price < 0) {
+      product.price = 0;
+    }
+    if(product.price < 50) {
       product.price = product.price + increase;
     } else {
-      product.price = product.price + increase;
+      product.price = 50;
     }
     product.sellIn = product.sellIn - 1;
+    return product;
+  }
+
+  updateMegaCovarage(product) {
+    if (product.price < 0) {
+      product.price = 0;
+    }
+    if(product.price > 50) {
+      product.price = 50;
+    }
     return product;
   }
 
@@ -45,6 +58,8 @@ class CarInsurance {
         return this.updateNormalCovarage(product);
       } else if(['Full Coverage'].includes(product.name)) {
         return this.updateFullCovarage(product);
+      } else if (['Mega Coverage'].includes(product.name)) {
+        return this.updateMegaCovarage(product);
       } else {
         //console.error('Check invalid product name'); // TODO: implement logger level
       }

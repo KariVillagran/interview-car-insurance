@@ -38,7 +38,7 @@ describe('Car Normal Covarage', () => {
   it('negative price', () => {
     const nameCovarage = 'Low Coverage';
     const sellInCovarage = -1;
-    const priceCovarage = -1;
+    const priceCovarage = -2;
     const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
     const products = coTest.updatePrice();
     expect(products[0].price).to.equal(0);
@@ -82,12 +82,65 @@ describe('Car Full Covarage', () => {
   it('negative price', () => {
     const nameCovarage = 'Full Coverage';
     const sellInCovarage = 1;
-    const priceCovarage = -1;
+    const priceCovarage = -2;
     const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
     const products = coTest.updatePrice();
-    expect(products[0].price).to.equal(0);
+    expect(products[0].price).to.equal(1);
     expect(products[0].sellIn).to.equal(0);
   });
 
+  it('price over 50', () => {
+    const nameCovarage = 'Full Coverage';
+    const sellInCovarage = 1;
+    const priceCovarage = 51;
+    const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(50);
+    expect(products[0].sellIn).to.equal(0);
+  });
+
+});
+
+describe('Car Mega Covarage', () => { 
+  
+  it('price when sellIn is positive', () => {
+    const nameCovarage = 'Mega Coverage';
+    const sellInCovarage = 4;
+    const priceCovarage = 5;
+    const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(5);
+    expect(products[0].sellIn).to.equal(4);
+  });
+
+  it('price when sellIn is negative', () => {
+    const nameCovarage = 'Mega Coverage';
+    const sellInCovarage = -1;
+    const priceCovarage = 4;
+    const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(4);
+    expect(products[0].sellIn).to.equal(-1);
+  });
+
+  it('negative price', () => {
+    const nameCovarage = 'Mega Coverage';
+    const sellInCovarage = 1;
+    const priceCovarage = -2;
+    const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(1);
+  });
+
+  it('price over 50', () => {
+    const nameCovarage = 'Mega Coverage';
+    const sellInCovarage = 1;
+    const priceCovarage = 51;
+    const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(50);
+    expect(products[0].sellIn).to.equal(1);
+  });
 
 });
