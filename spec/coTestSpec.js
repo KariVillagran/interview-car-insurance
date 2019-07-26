@@ -143,7 +143,7 @@ describe('Car Mega Coverage', () => {
     const priceCoverage = 5;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
     const products = coTest.updatePrice();
-    expect(products[0].price).to.equal(5);
+    expect(products[0].price).to.equal(80);
     expect(products[0].sellIn).to.equal(4);
   });
 
@@ -153,7 +153,7 @@ describe('Car Mega Coverage', () => {
     const priceCoverage = 4;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
     const products = coTest.updatePrice();
-    expect(products[0].price).to.equal(4);
+    expect(products[0].price).to.equal(80);
     expect(products[0].sellIn).to.equal(-1);
   });
 
@@ -163,7 +163,7 @@ describe('Car Mega Coverage', () => {
     const priceCoverage = -2;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
     const products = coTest.updatePrice();
-    expect(products[0].price).to.equal(0);
+    expect(products[0].price).to.equal(80);
     expect(products[0].sellIn).to.equal(1);
   });
 
