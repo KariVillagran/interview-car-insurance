@@ -148,3 +148,48 @@ describe('Car Mega Coverage', () => {
   });
 
 });
+
+
+describe('Car Super Coverage', () => { 
+  
+  it('sellIn over 10 days', () => {
+    const nameCoverage = 'Super Coverage';
+    const sellInCoverage = 11;
+    const priceCoverage = 5;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(6);
+    expect(products[0].sellIn).to.equal(10);
+  });
+
+  it('sellIn with 10 days', () => {
+    const nameCoverage = 'Super Coverage';
+    const sellInCoverage = 10;
+    const priceCoverage = 5;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(7);
+    expect(products[0].sellIn).to.equal(9);
+  });
+
+  it('sellIn with 5 days', () => {
+    const nameCoverage = 'Super Coverage';
+    const sellInCoverage = 5;
+    const priceCoverage = 5;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(8);
+    expect(products[0].sellIn).to.equal(4);
+  });
+
+  it('sellIn with 0 days', () => {
+    const nameCoverage = 'Super Coverage';
+    const sellInCoverage = 0;
+    const priceCoverage = 5;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(-1);
+  });
+
+});

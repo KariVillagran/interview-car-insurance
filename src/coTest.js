@@ -52,6 +52,30 @@ class CarInsurance {
     return product;
   }
 
+  updateSuperCovarage(product) {
+    let increase = 1;
+    if (product.sellIn <= 10) {
+      increase = 2;
+    }
+    if (product.sellIn <= 5) {
+      increase = 3;
+    }
+    if (product.price < 0) {
+      product.price = 0;
+    }
+    if(product.price < 50) {
+      product.price = product.price + increase;
+    } else {
+      product.price = 50;
+    }
+    if (product.sellIn <= 0) {
+      product.price = 0;
+      //console.error('invalid product'); // TODO: implement logger level
+    }
+    product.sellIn = product.sellIn - 1;
+    return product;
+  }
+
   updatePrice() {
     this.products = this.products.map(product => {
       if (['Low Coverage', 'Medium Coverage'].includes(product.name)) {
@@ -60,6 +84,8 @@ class CarInsurance {
         return this.updateFullCovarage(product);
       } else if (['Mega Coverage'].includes(product.name)) {
         return this.updateMegaCovarage(product);
+      } else if (['Super Coverage'].includes(product.name)) {
+        return this.updateSuperCovarage(product);
       } else {
         //console.error('Check invalid product name'); // TODO: implement logger level
       }
