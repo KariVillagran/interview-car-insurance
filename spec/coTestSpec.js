@@ -244,3 +244,47 @@ describe('Car Special Full Coverage', () => {
   });
 
 });
+
+describe('Car Super Sale Coverage', () => {
+
+  it('price when sellIn is positive', () => {
+    const nameCoverage = 'Super Sale';
+    const sellInCoverage = 4;
+    const priceCoverage = 5;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(3);
+    expect(products[0].sellIn).to.equal(3);
+  });
+
+  it('price when sellIn is negative', () => {
+    const nameCoverage = 'Super Sale';
+    const sellInCoverage = -1;
+    const priceCoverage = 4;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(-2);
+  });
+
+  it('negative price', () => {
+    const nameCoverage = 'Super Sale';
+    const sellInCoverage = -1;
+    const priceCoverage = -2;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(-2);
+  });
+
+  it('valide day 0', () => {
+    const nameCoverage = 'Super Sale';
+    const sellInCoverage = 0;
+    const priceCoverage = 4;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(0);
+    expect(products[0].sellIn).to.equal(-1);
+  });
+
+});

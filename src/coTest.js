@@ -85,6 +85,20 @@ class CarInsurance {
     return product;
   }
 
+  updateSuperSale(product) {
+    let decreases = 2;
+    if (product.sellIn <= 0) {
+      decreases = 4;
+    }
+    if(product.price > 0) {
+      product.price = product.price - decreases;
+    } else {
+      product.price = 0;
+    }
+    product.sellIn = product.sellIn - 1;
+    return product;
+  }
+
   updatePrice() {
     this.products = this.products.map(product => {
       if (['Low Coverage', 'Medium Coverage'].includes(product.name)) {
@@ -93,8 +107,10 @@ class CarInsurance {
         return this.updateFullCovarage(product);
       } else if (['Mega Coverage'].includes(product.name)) {
         return this.updateMegaCovarage(product);
-      } else if (['Super Coverage'].includes(product.name)) {
+      } else if (['Special Full Coverage'].includes(product.name)) {
         return this.updateSuperCovarage(product);
+      } else if (['Super Sale'].includes(product.name)) {
+        return this.updateSuperSale(product);
       } else {
         //console.error('Check invalid product name'); // TODO: implement logger level
       }
