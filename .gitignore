@@ -1,0 +1,21 @@
+node_modules
+npm-debug.log*
+
+# ----------------------------------------------------------------------
+# | macOS                                                              |
+# ----------------------------------------------------------------------
+._*
+.AppleDouble
+.DS_Store
+.localized
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon
+
+
+# dotenv environment variables file
+.env
+
+# Visual Code Studio
+/.vscode
