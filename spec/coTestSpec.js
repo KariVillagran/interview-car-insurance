@@ -173,17 +173,28 @@ describe('Car Mega Coverage', () => {
     const priceCoverage = 51;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
     const products = coTest.updatePrice();
-    expect(products[0].price).to.equal(50);
+    expect(products[0].price).to.equal(80);
     expect(products[0].sellIn).to.equal(1);
   });
+
+  it('price equals 80', () => {
+    const nameCoverage = 'Mega Coverage';
+    const sellInCoverage = 1;
+    const priceCoverage = 80;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(80);
+    expect(products[0].sellIn).to.equal(1);
+  });
+
 
 });
 
 
-describe('Car Super Coverage', () => { 
+describe('Car Special Full Coverage', () => { 
   
   it('sellIn over 10 days', () => {
-    const nameCoverage = 'Super Coverage';
+    const nameCoverage = 'Special Full Coverage';
     const sellInCoverage = 11;
     const priceCoverage = 5;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
@@ -193,7 +204,7 @@ describe('Car Super Coverage', () => {
   });
 
   it('sellIn with 10 days', () => {
-    const nameCoverage = 'Super Coverage';
+    const nameCoverage = 'Special Full Coverage';
     const sellInCoverage = 10;
     const priceCoverage = 5;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
@@ -203,7 +214,7 @@ describe('Car Super Coverage', () => {
   });
 
   it('sellIn with 5 days', () => {
-    const nameCoverage = 'Super Coverage';
+    const nameCoverage = 'Special Full Coverage';
     const sellInCoverage = 5;
     const priceCoverage = 5;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
@@ -212,8 +223,18 @@ describe('Car Super Coverage', () => {
     expect(products[0].sellIn).to.equal(4);
   });
 
+  it('sellIn with 5 days and 49 price', () => {
+    const nameCoverage = 'Special Full Coverage';
+    const sellInCoverage = 5;
+    const priceCoverage = 49;
+    const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
+    const products = coTest.updatePrice();
+    expect(products[0].price).to.equal(50);
+    expect(products[0].sellIn).to.equal(4);
+  });
+
   it('sellIn with 0 days', () => {
-    const nameCoverage = 'Super Coverage';
+    const nameCoverage = 'Special Full Coverage';
     const sellInCoverage = 0;
     const priceCoverage = 5;
     const coTest = new CarInsurance([ new Product(nameCoverage, sellInCoverage, priceCoverage) ]);
