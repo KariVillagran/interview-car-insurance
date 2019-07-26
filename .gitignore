@@ -19,3 +19,5 @@ Icon
 
 # Visual Code Studio
 /.vscode
+
+package-lock.json
