@@ -6,8 +6,8 @@ const Product = coTest.Product;
 
 describe('Car Normal Covarage', () => {
 
-  it('Check valid covarage', () => {
-    const nameCovarage = 'foo';
+  it('valid covarage', () => {
+    const nameCovarage = 'Low Coverage';
     const sellInCovarage = 0;
     const priceCovarage = 0;
     const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
@@ -15,8 +15,8 @@ describe('Car Normal Covarage', () => {
     expect(products).to.be.a('array');
   });
 
-  it('Check price when sellIn is positive', () => {
-    const nameCovarage = 'foo';
+  it('price when sellIn is positive', () => {
+    const nameCovarage = 'Low Coverage';
     const sellInCovarage = 4;
     const priceCovarage = 5;
     const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
@@ -25,8 +25,8 @@ describe('Car Normal Covarage', () => {
     expect(products[0].sellIn).to.equal(3);
   });
 
-  it('Check price when sellIn is negative', () => {
-    const nameCovarage = 'foo';
+  it('price when sellIn is negative', () => {
+    const nameCovarage = 'Low Coverage';
     const sellInCovarage = -1;
     const priceCovarage = 4;
     const coTest = new CarInsurance([ new Product(nameCovarage, sellInCovarage, priceCovarage) ]);
